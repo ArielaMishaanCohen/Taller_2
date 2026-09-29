@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pipeline_sklearn"
+version = "1.2.0"
+description = "Pipeline reproducible de scikit-learn sobre el dataset Titanic"
+readme = "README.md"
+requires-python = ">=3.10"
+# Las dependencias NO se escriben aquí: se leen de requirements.txt
+dynamic = ["dependencies"]
+
+[project.scripts]
+titanic-pipeline = "main:main"
+
+[tool.setuptools]
+py-modules = ["main", "pipeline"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }

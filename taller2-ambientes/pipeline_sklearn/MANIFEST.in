@@ -1,0 +1,12 @@
+# Archivos que no son .py y deben viajar dentro del sdist (.tar.gz).
+# - requirements.txt: pyproject.toml lee las dependencias desde aquí. Las
+#   versiones recientes de setuptools lo agregan solas por estar declarado en
+#   [tool.setuptools.dynamic], pero si se usa un setup.py que hace
+#   open("requirements.txt") es obligatorio incluirlo, así que se deja explícito.
+# - data/titanic.csv: sin esta línea NO se incluye en el paquete.
+# - tests/: setuptools suele incluirlos por defecto; se declaran para no depender de eso.
+include requirements.txt
+include README.md
+include Makefile
+include data/titanic.csv
+recursive-include tests *.py
